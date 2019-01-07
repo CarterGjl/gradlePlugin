@@ -1,0 +1,25 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+uploadArchives{
+    repositories.mavenDeployer{
+        repository(url: 'file:///Users/gaojinliang/Documents/localMaven')
+        pom.groupId = "com.carter.plugin"
+        pom.artifactId = "publishApp"
+        pom.version = "1.0.0"
+    }
+}
+sourceSets{
+    main{
+        groovy{
+            srcDir 'src/main/grovy'
+        }
+        resources{
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+dependencies {
+    implementation gradleApi()
+}
